@@ -69,16 +69,12 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 -->
 {% if page.latlng %}
 <p id="where">
-  <strong>Where:</strong>
+  <strong>Where: Due to the fact that this venue is on LLNL site, inside gates, it is accessible only to DOE badged employees.</strong>
   {{page.address}}.
   Get directions with
   <a href="//www.openstreetmap.org/?mlat={{page.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
   or
   <a href="//maps.google.com/maps?q={{page.latlng}}">Google Maps</a>.
-</p>
-<p>
-	<strong>Note about venue: Due to the fact that this venue is on LLNL site,
-		inside gates, it is accessible only to DOE badged employees.</strong>
 </p>
 {% endif %}
 
