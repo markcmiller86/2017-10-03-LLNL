@@ -44,6 +44,8 @@ Loading and printing data
        - all this did was read the contents of the file and print it.
        - We have to tell python to put that data somewhere so it
          will remember (memory) it for us when we want to access it
+       - what would we do if the file was space delimited?
+       - what would we do if the file was in a sub-directory named foo?
     * data = numpy.loadtxt(fname='inflammation-01.csv',delimiter=',')
        - reading x = 2 ==> x takes the value 2
        - read the equal sign as 'takes the value'
@@ -62,14 +64,18 @@ What is an array?
     * data.shape
     * data[0]
     * data[1]
-    * data[0][0]
+    * data[0:3]
+    * data[0][0] and data[0,0]
 
 Using numpy on the array:
     * patient_0 = data[0, :]
         - patient_0 = data[0]
     * numpy.mean(patient_0)
+    * numpy.mean(data[2])
+    * numpy.mean(data[5:11]
     * numpy.mean(data)
     * numpy.mean(data, axis=0)
+        - what do we do if we wanna store/remember the result of this operation
 
 Plotting
     * import matplotlib.pyplot as pyp
