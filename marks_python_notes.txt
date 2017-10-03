@@ -1,0 +1,107 @@
+Changes:
+    * Confirm version
+        python --version
+
+    * Do some easy but powerful things first, then
+      learn more of the details about python programming.
+
+        python is a programming language. But part of what
+        makes it so powerful is all of the extra features
+        that have been added to it by the "python community"
+        These extra features are called 'modules'
+
+    * First, some review of shell and take a look at the files
+        - cd data
+        - ls
+        - ls -1
+        - cat inflammation-01.csv
+        - What if we wanted to know how many rows and how many columns?
+        - a 'row' is a 'line' in the file...what is a shell function we
+          learned recently that would tell us how many lines?
+        - wc -l inflammation-01.csv
+        - head -n 1 inflammation-01.csv
+        - head -n 1 inflammation-01.csv | tr -d '0123456789' | wc -c
+            - am using an new shell function, 'tr' (translate) that
+              with -d (delete) option. All that is left is commas.
+        - head -n 1 inflammation-01.csv | tr -d '0-9' | wc -c
+
+        - each row represents a patient, each column one day of
+          that patient's values
+
+    * now, start python3
+
+Loading and printing data
+    * import numpy
+        - like getting a piece of lab equipment and setting it up on the lab
+          bench
+        - will use a function in numpy module (loadtxt) to read the data in
+          this file into a numpy object
+    * help() all help on python
+    * help(numpy)
+    * help(numpy.loadtxt)
+    * numpy.loadtxt(fname='inflammation-01.csv',delimiter=',')
+       - all this did was read the contents of the file and print it.
+       - We have to tell python to put that data somewhere so it
+         will remember (memory) it for us when we want to access it
+    * data = numpy.loadtxt(fname='inflammation-01.csv',delimiter=',')
+       - reading x = 2 ==> x takes the value 2
+       - read the equal sign as 'takes the value'
+       - Show command-line editing with arrow keys and ctrl-a, ctrl-e
+    * print(data)
+       - note, default action for python to take is to 'print' so can
+         save a lot of typing by just typing the object's name
+    * data
+
+What is an array?
+    * type(data)
+    * print numpy.shape(data)
+        - remark...agrees with what we learned from shell commands, above
+    * numpy.shape(data)
+    * print(data.shape)
+    * data.shape
+    * data[0]
+    * data[1]
+    * data[0][0]
+
+Using numpy on the array:
+    * patient_0 = data[0, :]
+        - patient_0 = data[0]
+
+Plotting
+    * import matplotlib.pyplot as pyp
+    * help(matplotlib.pyplot) fails
+    * help(pyp)
+    
+
+Issues:
+
+    - Would be best if (some) inflammation data files used two chars for every
+      numerical value...cat/head then displays data looking like rows and columns
+        - dunno if numpy when reading will have problem with leading zeros
+
+    - avoid 'data index/value coincidences' that can be confusing to novices.
+      avoid sequences of data that have same value so you don't immediately
+      see variations as you print different values.
+        data[0] = 0 might suggest that value is same as index
+        data[0][7] = 7 might suggest second bracket is value.
+
+    - on loops, first uses integer indexing of a str object but then uses
+      a for loop that does for 'char' in 'word': and does NOT use integer
+      indexing of the chars of a str object. This is confusing.
+
+    - import matplotlib statements could be really simplified.
+
+    - 55 * 2.2 yields 121.000000001 in python but online materials show 121.0
+    - iPython notebook requires funky key sequence to execute what is entered
+      and doesn't interleave output with prompt (inputs). 
+    - the course content does NOT easily work in normal pyton interpreter
+    - matplotlib.pyplot.show can cause image to come up *behind* other windows.
+    - matplotlib.pyplot.show has no way to exit gracefully and return to prompt.
+    - color table or something is different in on-line course for first image
+      plotted. I cannot get same image when I plot.
+    - %matplotlib inline is NOT required
+
+    - survey should seek to know how many windows, osx and linux users there are
+
+    - supporting windows is complete non-starter for me. We have numerous windows
+      experts here so that we all do not need to know it.
