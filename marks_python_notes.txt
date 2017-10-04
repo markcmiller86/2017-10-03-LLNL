@@ -8,7 +8,8 @@ Changes:
         python is a programming language. But part of what
         makes it so powerful is all of the extra features
         that have been added to it by the "python community"
-        These extra features are called 'modules'
+        These extra features are called 'modules'. So, first
+        we are going to learn about numpy and matplotlib modules.
 
     * First, some review of shell and take a look at the files
         - cd data
@@ -43,6 +44,8 @@ Loading and printing data
        - all this did was read the contents of the file and print it.
        - We have to tell python to put that data somewhere so it
          will remember (memory) it for us when we want to access it
+       - what would we do if the file was space delimited?
+       - what would we do if the file was in a sub-directory named foo?
     * data = numpy.loadtxt(fname='inflammation-01.csv',delimiter=',')
        - reading x = 2 ==> x takes the value 2
        - read the equal sign as 'takes the value'
@@ -61,18 +64,28 @@ What is an array?
     * data.shape
     * data[0]
     * data[1]
-    * data[0][0]
+    * data[0:3]
+    * data[0][0] and data[0,0]
 
 Using numpy on the array:
     * patient_0 = data[0, :]
         - patient_0 = data[0]
+    * numpy.mean(patient_0)
+    * numpy.mean(data[2])
+    * numpy.mean(data[5:11]
+    * numpy.mean(data)
+    * numpy.mean(data, axis=0)
+        - what do we do if we wanna store/remember the result of this operation
 
 Plotting
     * import matplotlib.pyplot as pyp
     * help(matplotlib.pyplot) fails
     * help(pyp)
+    * image = pyp.imshow(data)
+    * pyp.show(image)
+    * plot = pyp.plot(patient_0)
+    * pyp.show(plot)
     
-
 Analyzing data from multiple files
 
     * import os
@@ -192,38 +205,3 @@ Command Line Arguments
 
         for me.../Users/miller86/anaconda3/bin/python3
 
-
-
-
-Issues:
-
-    - Would be best if (some) inflammation data files used two chars for every
-      numerical value...cat/head then displays data looking like rows and columns
-        - dunno if numpy when reading will have problem with leading zeros
-
-    - avoid 'data index/value coincidences' that can be confusing to novices.
-      avoid sequences of data that have same value so you don't immediately
-      see variations as you print different values.
-        data[0] = 0 might suggest that value is same as index
-        data[0][7] = 7 might suggest second bracket is value.
-
-    - on loops, first uses integer indexing of a str object but then uses
-      a for loop that does for 'char' in 'word': and does NOT use integer
-      indexing of the chars of a str object. This is confusing.
-
-    - import matplotlib statements could be really simplified.
-
-    - 55 * 2.2 yields 121.000000001 in python but online materials show 121.0
-    - iPython notebook requires funky key sequence to execute what is entered
-      and doesn't interleave output with prompt (inputs). 
-    - the course content does NOT easily work in normal pyton interpreter
-    - matplotlib.pyplot.show can cause image to come up *behind* other windows.
-    - matplotlib.pyplot.show has no way to exit gracefully and return to prompt.
-    - color table or something is different in on-line course for first image
-      plotted. I cannot get same image when I plot.
-    - %matplotlib inline is NOT required
-
-    - survey should seek to know how many windows, osx and linux users there are
-
-    - supporting windows is complete non-starter for me. We have numerous windows
-      experts here so that we all do not need to know it.
