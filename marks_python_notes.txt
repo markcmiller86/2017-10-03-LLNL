@@ -73,6 +73,128 @@ Plotting
     * help(pyp)
     
 
+Analyzing data from multiple files
+
+    * import os
+    * os.listdir() # ls
+    * os.getcwd() # pwd
+    * os.chdir() # cd
+    *
+    * import glob
+    * help(glob)
+    * filenames = glob.glob('inflammation*')
+    * filenames = filenames[0:3]
+    * cut-n-paste code
+
+    Ex: plot difference in first two datasets average
+
+    Ex: Generate three plots for *all* patients in all files
+
+Making Choices:
+    * num = 37
+      if num > 100:
+          print('greater')
+      else:
+          print('NOT greater')
+      print('done')
+      - don't need an 'else:' part
+
+    * num = -3
+      if num > 0:
+          print(num, 'is positive')
+      elif num == 0:
+          print(num, 'is zero')
+      else:
+          print(num, 'is negative')
+      - note the double equals (==)
+
+    * if (1>0) and (-1 > 0):
+          print('both are true')
+      else:
+          print('at least one is false')
+
+    Sanity checking data
+    * if numpy.max(data, axis=0)[0] == 0 and ...
+      elif numpy.sum(data, axis=0) == 0):
+      else:
+
+    * test with file -01 and file -03
+
+    * What is True/False
+
+    * using not
+ 
+Creating Functions
+
+    * def fahr_to_kelvin(temp):
+        return ((temp-32)*(5/9)) + 273.15 
+      
+      print('freezing point of water:', fahr_to_kelvin(32))
+      print('boiling point of water:', fahr_to_kelvin(212))
+
+    * Integer Division
+
+      - note 5/9 in python 2 (do this in python 2, do float(5)/9
+      - what if you want to do integer division?
+          - 5//9
+
+    * composing functions
+        def kelvin_to_celsius(temp_k):
+            return temp_k - 273.15
+
+      create a function to convert fahr to celsius
+
+    * function to analyze and sanity_check
+      but using nparr as argument
+
+    * document the functions
+
+    Ex: fence
+        variables inside and outside functions
+        old switch aroo
+
+Errors and Exceptions:
+
+    * syntax errors (spacing)
+    * variable name errors)
+        - function name errors 
+    * index errors
+    * file errors
+
+    Ex: Reading Error Messages
+
+Command Line Arguments
+
+    * Want to create "programs" that can be used like any other
+      shell command
+
+    * command to print version
+
+    * command to list arguments
+
+    * cat ../code/readings_01.py
+      - run it and it does nothing
+    * python ../code/readings_02.py inflammation-01.csv
+
+    * importing vs. running
+
+    * use small data inputs to sanity check
+      cat small-01.csv
+      python ../code/reading_02.py small-01.csv
+
+    * cat ../code/readings_03.py
+
+    * adding command-line flags
+
+    * make it runnable by its name alone
+
+        #!/usr/bin/env python
+
+        for me.../Users/miller86/anaconda3/bin/python3
+
+
+
+
 Issues:
 
     - Would be best if (some) inflammation data files used two chars for every
